@@ -1,0 +1,14 @@
+# Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
+v: 0
+micros:
+  - name: pythonProject10
+    src: ./
+    engine: python3.9
+    dev: .demo_tg/bin/uvicorn main:app --reload
+    primary: true
+    public: true
+    presets:
+      env:
+        - name: TELEGRAM
+          description: Telegram Bot Key
+          default: '6575287483:AAFT2l7GJ-NTb2gjdh-KBURSl4PnTYtEl74'
