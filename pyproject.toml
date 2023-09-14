@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "aws-demo"
+version = "0.1.0"
+description = ""
+authors = ["selensince1817 <vladimir.tregubiak@city.ac.uk>"]
+readme = "README.md"
+packages = [{include = "aws_demo"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+langchain = "^0.0.289"
+fastapi = "^0.99.1"
+openai = "^0.28.0"
+wikipedia = "^1.4.0"
+uvicorn = "^0.23.2"
+httpx = "^0.25.0"
+python-dotenv = "^1.0.0"
+mangum = "^0.17.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

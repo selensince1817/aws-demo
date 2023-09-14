@@ -2,6 +2,7 @@ import httpx
 from fastapi import FastAPI, Request
 import os
 from dotenv import load_dotenv
+from mangum import Mangum
 
 from llm.LLM import Agent
 
@@ -14,6 +15,7 @@ TOKEN = os.getenv("TG_BOT_TOKEN")
 BASE_URL = f"https://api.telegram.org/bot{TOKEN}"
 
 agent = Agent()
+handler = Mangum(app)
 
 
 @app.get("/")
@@ -31,8 +33,8 @@ async def webhook(req: Request):
         agent.llm_chain.memory.clear()
         resp = 'Reset complete!.'
     else:
-        resp = agent.aget_reply(text)
-        # resp = text
+        # resp = agent.aget_reply(text)
+        resp = text
     print(resp)
 
     payload = {"text": resp, "chat_id": chat_id}
